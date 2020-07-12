@@ -158,4 +158,4 @@ if __name__ == '__main__':
                 detect()
                 create_pretrained(opt.weights, opt.weights)
         else:
-            detect()
+            detect(save_img=True)

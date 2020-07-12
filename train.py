@@ -332,6 +332,11 @@ def train(hyp):
             torch.save(ckpt, last)
             if (best_fitness == fi) and not final_epoch:
                 torch.save(ckpt, best)
+                
+                save_path = os.path.join(wdir, 'ckpt_{}.pth'.format(opt.img_size[0]))
+                torch.save({'epoch': epoch,
+                        'model_state_dict': ema.ema.module.state_dict() if hasattr(model, 'module') else ema.ema.state_dict(), 
+                        'optimizer_state_dict': optimizer.state_dict()}, save_path)
             del ckpt
 
         # end epoch ----------------------------------------------------------------------------------------------------

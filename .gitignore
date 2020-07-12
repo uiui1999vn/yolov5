@@ -53,6 +53,9 @@ gcp_test*.sh
 *.torchscript
 darknet53.conv.74
 yolov3-tiny.conv.15
+*.tar
+*.pth
+weights/
 
 # GitHub Python GitIgnore ----------------------------------------------------------------------------------------------
 # Byte-compiled / optimized / DLL files
