@@ -52,10 +52,10 @@ def preprocess_img(img_BGR, imgsz=640, device=device):
 
 
 imgsz = 736
-model_cfg = 'yolov5m'
-ckpt = f'ckpt_65_{imgsz}'
+model_cfg = 'yolov5l'
+ckpt = f'ckpt_{imgsz}'
 cfg = f'/home/thanhnv/Detection/yolov5/models/{model_cfg}.yaml'
-weights = f'/home/thanhnv/Detection/yolov5/weights/sku110/{model_cfg}/{ckpt}.pth'
+weights = f'/home/thanhnv/Detection/yolov5/runs/exp0/weights/{ckpt}.pth'
 
 
 imgsz = check_img_size(imgsz)

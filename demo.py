@@ -9,9 +9,9 @@ from utils.utils import *
 
 # set True to speed up constant image size inference
 torch.backends.cudnn.benchmark = True  
-device = torch.device('cuda:1' if torch.cuda.is_available() else 'cpu')
+device = torch.device('cuda:3' if torch.cuda.is_available() else 'cpu')
 
-weights = 'path/to/best.pt'
+weights = '/home/thanhnv/Detection/yolov5/runs/exp0/weights/best.pt'
 imgsz = 736
 imgsz = check_img_size(imgsz)
 conf_thres = 0.4
