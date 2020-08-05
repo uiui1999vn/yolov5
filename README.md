@@ -1,16 +1,16 @@
 
 
-Train and evaluate YOLOv5 on CEOT Hand dataset.
+Train and evaluate YOLOv5 on the fisheye person-basket detection dataset.
 
 ## Comparison
 
 `Speed/FPS` was measured on an NVIDIA GPU RTX2018 Ti @ `batch_size=1`
 
-`image_size=640`
+`image_size=512`
 
 | Model | AP<sup>test</sup> | Precision| Recall | Speed<sub>GPU</sub> | FPS<sub>GPU</sub> || params | FLOPS |
 |---------- |------ |------ |------ | -------- | ------| ------ |------  |  :------: |
-| YOLOv5l | 46.5     | 62.1   | 86.0    | 20.9ms     | 48     || 47.8M  | 88.1B
+| YOLOv5m | 87.4     | 93.3   | 95.2    | 19.4ms     | 51     || 21.8M  | 39.4B
 
 
 ## Requirements

@@ -24,8 +24,8 @@
 !cfg/yolov3*.cfg
 
 storage.googleapis.com
+datasets/
 runs/*
-data/*
 !data/samples/zidane.jpg
 !data/samples/bus.jpg
 !data/coco.names

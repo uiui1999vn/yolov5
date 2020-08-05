@@ -1,0 +1,11 @@
+# train and val datasets (image directory or *.txt file with image paths)
+train: ./datasets/person_basket/images/train/  # 44163 images
+val: ./datasets/person_basket/images/val/      #  4417 images
+test: ./datasets/person_basket/images/test/    #  4907 images 
+
+# number of classes
+nc: 2
+
+# class names
+names: ['person','basket']
+
