@@ -25,7 +25,7 @@ $ pip install -r requirements.txt
 
 ## Data preparation
 
-Please download and put the dataset into the folder `yolov5/datasets`.
+Please download and put the [CEOT](https://drive.google.com/file/d/1UOG_XrZ8ZlFBvQOHFk7AHzx4m0tz4EYU/view?usp=sharing) hand dataset and put into the folder `yolov5/datasets`.
 
 ```
 yolov5/datasets/CEOT_hand_yolo/
@@ -39,9 +39,22 @@ yolov5/datasets/CEOT_hand_yolo/
     └── val
 ```
 
+## Download pretrained models on COCO
+
+For compatibility with the provided training code, please download these pretrained weights: [Weights](https://drive.google.com/file/d/1NoFDMlFNTzBeUsis09vNJH7Wv0zbUv7L/view?usp=sharing), and put into the `yolov5/weights`. The folder structure looks like this:
+
+```
+yolov5/weights/
+├── yolov5l.pt
+├── yolov5m.pt
+├── yolov5s.pt
+└── yolov5x.pt
+```
+
+
 ## Test
 
-Evaluate the performance of a trainned model on the Hand test set.
+After training, evaluate the performance of a trainned model on the CEOT hand test set.
 ```bash
 $ ./run_test.sh
 ```
