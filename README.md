@@ -1,6 +1,6 @@
 
 
-Train and evaluate YOLOv5 on Hand dataset.
+Train and evaluate YOLOv5 on CEOT Hand dataset.
 
 ## Comparison
 
