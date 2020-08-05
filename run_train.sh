@@ -1,6 +1,6 @@
 
 # Remove cached labels
-rm /home/thanhnv/Datasets/CEOT_hand_yolo/labels/*.cache
+rm  ./datasets/CEOT_hand_yolo/labels/*.cache
 
 python train.py \
         --img 640 \
