@@ -27,7 +27,8 @@ $ pip install -r requirements.txt
 
 Please download and put the dataset into the folder `yolov5/datasets`.
 
-`yolov5/datasets/person_basket/
+```
+yolov5/datasets/person_basket/
 ├── images
 │   ├── test
 │   ├── train
@@ -35,7 +36,8 @@ Please download and put the dataset into the folder `yolov5/datasets`.
 └── labels
     ├── test
     ├── train
-    └── val`
+    └── val
+```
 
 ## Test
 
