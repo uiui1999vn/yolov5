@@ -23,11 +23,20 @@ $ conda install pip
 $ pip install -r requirements.txt
 ```
 
-## Inference
+## Data preparation
 
-Inference can be run on most common media formats: images, videos, please check all the options.
-```bash
-$ ./run_detect.sh
+Please download and put the dataset into the folder `yolov5/datasets`.
+
+```
+yolov5/datasets/CEOT_hand_yolo/
+├── images
+│   ├── test
+│   ├── train
+│   └── val
+└── labels
+    ├── test
+    ├── train
+    └── val
 ```
 
 ## Test

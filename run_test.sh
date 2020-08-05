@@ -3,7 +3,7 @@ batch_size = 1
 '
 
 # Remove cached labels
-rm /home/thanhnv/Datasets/CEOT_hand_yolo/labels/*.cache
+rm ./datasets/CEOT_hand_yolo/labels/*.cache
 
 python test.py \
         --weights ./runs/exp2/weights/best.pt \
