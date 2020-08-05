@@ -41,7 +41,7 @@ yolov5/datasets/CEOT_hand_yolo/
 
 ## Download pretrained models on COCO
 
-For compatibility with the provided training code, please download these pretrained weights: [Weights](https://drive.google.com/file/d/1NoFDMlFNTzBeUsis09vNJH7Wv0zbUv7L/view?usp=sharing), and put into the `yolov5/weights`. The folder structure looks like this:
+For compatibility with the provided training code, please download these pretrained [Weights](https://drive.google.com/file/d/1NoFDMlFNTzBeUsis09vNJH7Wv0zbUv7L/view?usp=sharing), and put into the `yolov5/weights`. The folder structure looks like this:
 
 ```
 yolov5/weights/
