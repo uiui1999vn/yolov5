@@ -114,6 +114,8 @@ class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'tra
                'teddy bear',
                'hair drier', 'toothbrush']
 
+# class_names = ['hand']
+input_size = 320
 
 def letterbox_image(image, size):
     iw, ih = image.size
@@ -141,6 +143,7 @@ def scale_coords(img1_shape, coords, img0_shape, ratio_pad=None):
     if ratio_pad is None:  # calculate from img0_shape
         gain = max(img1_shape) / max(img0_shape)  # gain  = old / new
         pad = (img1_shape[1] - img0_shape[1] * gain) / 2, (img1_shape[0] - img0_shape[0] * gain) / 2  # wh padding
+        print(gain, pad)
     else:
         gain = ratio_pad[0][0]
         pad = ratio_pad[1]
@@ -260,7 +263,7 @@ def display(detections=None, image_path=None, line_thickness=None, text_bg_alpha
     # resized = np.array(resized)
     image_src = np.array(image_src)
 
-    boxs[:, :] = scale_coords((640, 640), boxs[:, :], (h, w)).round()
+    boxs[:, :] = scale_coords((input_size, input_size), boxs[:, :], (h, w)).round()
 
     tl = line_thickness or round(0.002 * (w + h) / 2) + 1
     for i, box in enumerate(boxs):

@@ -8,6 +8,7 @@ import argparse
 import torch
 
 from utils.google_utils import attempt_download
+from utils.torch_utils import prune
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -24,6 +25,7 @@ if __name__ == '__main__':
     # Load PyTorch model
     attempt_download(opt.weights)
     model = torch.load(opt.weights, map_location=torch.device('cpu'))['model'].float()
+    prune(model, 0.3)
     model.eval()
     model.model[-1].export = True  # set Detect() layer export=True
     y = model(img)  # dry run
@@ -43,6 +45,7 @@ if __name__ == '__main__':
         import onnx
         print('\nStarting ONNX export with onnx %s...' % onnx.__version__)
         f = opt.weights.replace('.pt', '.onnx')  # filename
+
         model.fuse()  # only for ONNX
         torch.onnx.export(model, img, f, verbose=True, opset_version=10, input_names=['images'],
                           output_names=['classes', 'boxes'] if y is None else ['output'])

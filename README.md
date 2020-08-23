@@ -45,7 +45,7 @@ $ pip3 install -r requirements_onnx.txt
 
 ```bash
 $ cd <YOLOv5_INSTALL_DIR>
-$ source openvino/bin/activate
+$ source ~/intel/openvino/deployment_tools/model_optimizer/openvino/bin/activate
 $ source ~/intel/openvino/bin/setupvars.sh
 $ ./run_convert.sh
 ```
@@ -54,6 +54,8 @@ $ ./run_convert.sh
 
 ```bash
 $ cd <YOLOv5_INSTALL_DIR>
+$ source ~/intel/openvino/deployment_tools/model_optimizer/openvino/bin/activate
+$ source ~/intel/openvino/bin/setupvars.sh
 $ python models/demo_openvino.py
 ```
 
