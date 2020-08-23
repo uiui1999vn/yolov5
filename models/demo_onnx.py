@@ -13,7 +13,6 @@ from PIL import Image, ImageDraw, ImageFont
 
 from utils.general import non_max_suppression
 
-
 # Note:
 # 1. run export.py ---> .onnx
 # 2. run demo_onnx.py
@@ -292,6 +291,7 @@ def display(detections=None, image_path=None, line_thickness=None, text_bg_alpha
 
 
 if __name__ == '__main__':
+
     matplotlib.use('TKAgg')
     plt.rcParams['font.sans-serif'] = ['SimHei']  # 用来正常显示中文标签
     plt.style.use(['fast'])

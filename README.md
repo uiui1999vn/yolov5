@@ -1,8 +1,8 @@
-Convert yolov5 models (verson 2) in `*.pt` format to `OpenVINO`, there are 2 steps:
+# Convert yolov5 models (verson 2) in `*.pt` format to `OpenVINO`, there are 2 steps:
 
 ## 1. Convert to ONNX
 
-### Requirements
+### 1.1. Requirements
 
 Just use `yolov5 verson 2` requirements, and the following packages:
 
@@ -11,13 +11,13 @@ $ pip install onnx==1.7.0
 $ pip install onnxruntime==1.4.0
 ```
 
-### Conversion
+### 1.2. Conversion
 
 ```bash
 $ ./run_export_onnx.sh
 ```
 
-### Verification
+### 1.3. Verification
 
 ```bash
 $ cd <YOLOv5_INSTALL_DIR>
@@ -26,11 +26,11 @@ $ python models/demo_onnx.py
 
 ## 2. Convert from ONNX to OpenVINO
 
-### OpenVINO installation
+### 2.1. OpenVINO installation
 
 Install `OpenVINO` 2020.4 in a `USER` account.
 
-### Configuration
+### 2.2. Configuration
 
 Please use `python 3.6`
 
@@ -41,7 +41,7 @@ $ source openvino/bin/activate
 $ pip3 install -r requirements_onnx.txt
 ```
 
-### Conversion
+### 2.3. Conversion
 
 ```bash
 $ cd <YOLOv5_INSTALL_DIR>
@@ -50,7 +50,7 @@ $ source ~/intel/openvino/bin/setupvars.sh
 $ ./run_convert.sh
 ```
 
-### Verification
+### 2.4. Verification
 
 ```bash
 $ cd <YOLOv5_INSTALL_DIR>
