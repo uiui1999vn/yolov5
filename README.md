@@ -1,4 +1,4 @@
-# Convert yolov5 models (verson 2) in `*.pt` format to `OpenVINO`, there are 2 steps:
+# Convert yolov5 models (verson 2) in `*.pt` format to `OpenVINO`
 
 ## 1. Convert to ONNX
 
