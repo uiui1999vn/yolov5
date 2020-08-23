@@ -5,7 +5,6 @@ Usage:
 """
 
 import argparse
-import onnx
 import torch
 
 from utils.google_utils import attempt_download
@@ -41,7 +40,7 @@ if __name__ == '__main__':
 
     # ONNX export
     try:
-
+        import onnx
         print('\nStarting ONNX export with onnx %s...' % onnx.__version__)
         f = opt.weights.replace('.pt', '.onnx')  # filename
         model.fuse()  # only for ONNX
@@ -50,8 +49,6 @@ if __name__ == '__main__':
 
         # Checks
         onnx_model = onnx.load(f)  # load onnx model
-        # print(onnx_model.ir_version)
-        # onnx_model.ir_version = 6
         onnx.checker.check_model(onnx_model)  # check onnx model
         print(onnx.helper.printable_graph(onnx_model.graph))  # print a human readable model
         print('ONNX export success, saved as %s' % f)

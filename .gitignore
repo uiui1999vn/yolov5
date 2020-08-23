@@ -243,5 +243,5 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
-weights/
-*.bin
+# weights/
+# *.bin
