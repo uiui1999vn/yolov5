@@ -8,10 +8,10 @@ from models.demo_onnx import *
 
 input_size = 320
 batch_size = 1
-# These anchors are for yolov5s and input_size = 640
+# These anchors are for yolov5s
 anchors = [10,13,16,30,33,23,30,61,62,45,59,119,116,90,156,198,373,326]
-# These anchors are for yolov5s and input_size = 320
-# anchors = [anchor*2.0 for anchor in anchors]
+
+
 
 LABELS = ("person", "bicycle", "car", "motorbike", "aeroplane",
           "bus", "train", "truck", "boat", "traffic light",
@@ -55,7 +55,7 @@ def main_IE_infer():
     input_blob = next(iter(net.inputs))
     exec_net = plugin.load(network=net)
 
-    image_path = "inference/images/bus.jpg"
+    image_path = "inference/images/zidane.jpg"
 
     start = time.time()
     image_src = Image.open(image_path)
@@ -111,7 +111,7 @@ def main_IE_infer():
     outputx = torch.cat(boxs, 1)
 
     # NMS
-    batch_detections = w_non_max_suppression(outputx, num_classes, conf_thres=0.5, nms_thres=0.5)
+    batch_detections = w_non_max_suppression(outputx, num_classes, conf_thres=0.09, nms_thres=0.1)
     end = time.time()
     print(f"Processing time: {(end - start)}")
 
