@@ -25,7 +25,7 @@ if __name__ == '__main__':
     # Load PyTorch model
     attempt_download(opt.weights)
     model = torch.load(opt.weights, map_location=torch.device('cpu'))['model'].float()
-    prune(model, 0.3)
+    prune(model, 0.2)
     model.eval()
     model.model[-1].export = True  # set Detect() layer export=True
     y = model(img)  # dry run

@@ -6,7 +6,7 @@ from openvino.inference_engine import IENetwork, IEPlugin
 
 from models.demo_onnx import *
 
-input_size = 320
+input_size = 640
 batch_size = 1
 # These anchors are for yolov5s
 anchors = [10,13,16,30,33,23,30,61,62,45,59,119,116,90,156,198,373,326]
@@ -111,7 +111,7 @@ def main_IE_infer():
     outputx = torch.cat(boxs, 1)
 
     # NMS
-    batch_detections = w_non_max_suppression(outputx, num_classes, conf_thres=0.09, nms_thres=0.1)
+    batch_detections = w_non_max_suppression(outputx, num_classes, conf_thres=0.4, nms_thres=0.4)
     end = time.time()
     print(f"Processing time: {(end - start)}")
 
