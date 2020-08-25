@@ -3,6 +3,7 @@ import math
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
 
 def autopad(k, p=None):  # kernel, padding
@@ -116,3 +117,16 @@ class Classify(nn.Module):
     def forward(self, x):
         z = torch.cat([self.aap(y) for y in (x if isinstance(x, list) else [x])], 1)  # cat if list
         return self.flat(self.conv(z))  # flatten to x(b,c2)
+
+
+class Upsample(nn.Module):
+    def __init__(self, size, scale, mode, align_corners=None):
+        super(Upsample, self).__init__()
+        self.size = size
+        self.scale = scale
+        self.mode = mode
+        self.align_corners = align_corners
+
+    def forward(self, x):
+        sh = torch.tensor(x.shape)
+        return F.interpolate(x, size=(int(sh[2]*self.scale), int(sh[3]*self.scale)), mode=self.mode, align_corners=self.align_corners)

@@ -197,8 +197,8 @@ class_names = ['person', 'bicycle', 'car', 'motorcycle', 'airplane', 'bus', 'tra
                'teddy bear',
                'hair drier', 'toothbrush']
 
-# class_names = ['hand']
-input_size = 640
+class_names = ['hand']
+input_size = 320
 
 def letterbox_image(image, size):
     iw, ih = image.size

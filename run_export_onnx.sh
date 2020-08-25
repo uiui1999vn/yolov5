@@ -1,6 +1,6 @@
 
 export PYTHONPATH="$PWD"
 python models/export.py \
-       --weights weights/yolov5s.pt \
-       --img 640 \
+       --weights weights/best.pt \
+       --img 320 \
        --batch 1

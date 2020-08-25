@@ -6,18 +6,26 @@ import numpy as np
 import onnx
 import onnxruntime
 
-class Test(nn.Module):
-    def __init__(self):
-        super().__init__()
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class Upsample(nn.Module):
+    def __init__(self, scale=3, mode='nearest', align_corners=None):
+        super(Upsample, self).__init__()
+        self.scale = scale
+        self.mode = mode
+        self.align_corners = align_corners
 
     def forward(self, x):
-        return F.interpolate(x, size=(400, 600), mode='bilinear', align_corners=False) #no warning, all clear
+        sh = torch.tensor(x.shape)
+        return F.interpolate(x, size=(int(sh[2]*self.scale), int(sh[3]*self.scale)), mode=self.mode, align_corners=self.align_corners)
 
-model = Test()
-x = torch.rand((1, 3, 200, 300))
-torch.onnx._export(model, x, "weights/test.onnx", verbose=True)
-
+model = Upsample()
 model.eval()
+x = torch.rand((1, 3, 200, 320))
+torch.onnx._export(model, x, "weights/test.onnx", verbose=True, opset_version=10)
+
 with torch.no_grad():
     torch_out = model(x)
 
