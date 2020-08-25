@@ -1,17 +1,16 @@
 
 # Remove cached labels
-rm  /home/thanhnv/Documents/Datasets/COCO2017/labels/*.cache
+rm  /home/thanh_nguyen/Datasets/COCO2017_Person/labels/*.cache
 
 python train.py \
         --img 512 \
         --cfg ./models/yolov5s.yaml \
-        --batch 32 \
-        --epochs 100 \
+        --batch 64 \
+        --epochs 200 \
         --data ./data/coco_person.yaml \
         --single-cls \
-        --weights weights/yolov5s.pt \
-        --device 0,1 \
+        --weights ' ' \
+        --device 0 \
         --multi-scale \
-        --sync-bn
 
 
