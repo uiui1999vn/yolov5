@@ -3,14 +3,14 @@
 rm  /home/thanhnv/Documents/Datasets/COCO2017/labels/*.cache
 
 python train.py \
-        --img 320 \
+        --img 512 \
         --cfg ./models/yolov5s.yaml \
-        --batch 180 \
-        --epochs 200 \
+        --batch 32 \
+        --epochs 100 \
         --data ./data/coco_person.yaml \
         --single-cls \
-        --weights ' ' \
-        --device 0,1,2 \
+        --weights weights/yolov5s.pt \
+        --device 0,1 \
         --multi-scale \
         --sync-bn
 

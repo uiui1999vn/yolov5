@@ -29,7 +29,7 @@ from utils.google_utils import attempt_download
 from utils.torch_utils import init_seeds, ModelEMA, select_device
 
 # Hyperparameters
-hyp = {'lr0': 0.01,  # initial learning rate (SGD=1E-2, Adam=1E-3)
+hyp = {'lr0': 0.0001,  # initial learning rate (SGD=1E-2, Adam=1E-3)
        'momentum': 0.937,  # SGD momentum/Adam beta1
        'weight_decay': 5e-4,  # optimizer weight decay
        'giou': 0.05,  # GIoU loss gain
