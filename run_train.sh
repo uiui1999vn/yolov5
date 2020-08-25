@@ -1,14 +1,17 @@
 
 # Remove cached labels
-rm  ./datasets/CEOT_hand_yolo/labels/*.cache
+rm  /home/thanhnv/Documents/Datasets/COCO2017/labels/*.cache
 
 python train.py \
-        --img 640 \
-        --cfg ./models/yolov5l_ceot_hand.yaml \
-        --batch 16 \
-        --epochs 50 \
-        --data ./data/ceot_hand.yaml \
+        --img 320 \
+        --cfg ./models/yolov5s.yaml \
+        --batch 180 \
+        --epochs 200 \
+        --data ./data/coco_person.yaml \
         --single-cls \
-        --weights ./weights/yolov5l.pt\
-        --device 5
+        --weights ' ' \
+        --device 0,1,2 \
+        --multi-scale \
+        --sync-bn
+
 

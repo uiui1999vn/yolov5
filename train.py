@@ -388,7 +388,7 @@ def train(hyp, opt, device, tb_writer=None):
 
                     save_path = os.path.join(wdir, 'ckpt_{}.pth'.format(opt.img_size[0]))
                     torch.save({'epoch': epoch,
-                        'model_state_dict': ema.ema.module.state_dict() if hasattr(model, 'module') else ema.ema.state_dict(), 
+                        'model_state_dict': ema.ema.module.state_dict() if hasattr(ema, 'module') else ema.ema.state_dict(), 
                         'optimizer_state_dict': optimizer.state_dict()}, save_path)
 
                 del ckpt

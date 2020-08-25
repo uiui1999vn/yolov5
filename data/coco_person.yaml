@@ -1,0 +1,10 @@
+# train and val datasets (image directory or *.txt file with image paths)
+train: /home/thanhnv/Documents/Datasets/COCO2017/train2017.txt
+val: /home/thanhnv/Documents/Datasets/COCO2017/val2017.txt
+test: /home/thanhnv/Documents/Datasets/COCO2017/val2017.txt
+
+# number of classes
+nc: 1
+
+# class names
+names: ['person']
