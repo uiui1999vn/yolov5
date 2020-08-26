@@ -3,10 +3,10 @@
 rm  /home/thanh_nguyen/Datasets/COCO2017_Person/labels/*.cache
 
 python train.py \
-        --img 512 \
+        --img 320 \
         --cfg ./models/yolov5s.yaml \
-        --batch 64 \
-        --epochs 200 \
+        --batch 128 \
+        --epochs 1000 \
         --data ./data/coco_person.yaml \
         --single-cls \
         --weights ' ' \
