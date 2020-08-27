@@ -19,11 +19,11 @@ python train.py \
         --img 512 \
         --cfg ./models/yolov5s.yaml \
         --batch 64 \
-        --epochs 200 \
+        --epochs 500 \
         --data ./data/coco_person.yaml \
         --single-cls \
-        --weights weights/yolov5s.pt \
+        --weights ' ' \
         --device 0 \
-        --multi-scale \
+        --multi-scale
 
 
