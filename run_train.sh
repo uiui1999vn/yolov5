@@ -22,7 +22,7 @@ python train.py \
         --epochs 300 \
         --data ./data/coco_person.yaml \
         --single-cls \
-        --weights ' ' \
+        --weights weights/yolov5m.pt \
         --device 0 \
         --multi-scale
 
