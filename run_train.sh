@@ -10,19 +10,21 @@ n=9, img_size=320, metric_all=0.305/0.721-mean/best, past_thr=0.491-mean: 5,8,  
 New anchors saved to model. Update model *.yaml to use these anchors in the future.
 
 Image sizes 320 train, 320 test
+
+Start Tensorboard with "tensorboard --logdir=runs", view at http://localhost:6006/
 '
 
 # Remove cached labels
 rm  /home/thanh_nguyen/Datasets/COCO2017_Person/labels/*.cache
 
 python train.py \
-        --img 512 \
-        --cfg ./models/yolov5m.yaml \
+        --img 640 \
+        --cfg ./models/yolov5xs.yaml \
         --batch 48 \
         --epochs 300 \
         --data ./data/coco_person.yaml \
         --single-cls \
-        --weights weights/yolov5m.pt \
+        --weights weights/yolov5s.pt \
         --device 0 \
         --multi-scale
 
