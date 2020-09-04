@@ -21,7 +21,7 @@ $ ./run_export_onnx.sh
 
 ```bash
 $ cd <YOLOv5_INSTALL_DIR>
-$ python models/demo_onnx.py
+$ python conversion/demo_onnx.py
 ```
 
 ## 2. Convert from ONNX to OpenVINO
@@ -56,9 +56,28 @@ $ ./run_convert.sh
 $ cd <YOLOv5_INSTALL_DIR>
 $ source ~/intel/openvino/deployment_tools/model_optimizer/openvino/bin/activate
 $ source ~/intel/openvino/bin/setupvars.sh
-$ python models/demo_openvino.py
+$ python conversion/demo_openvino.py
 ```
 
+## 3. Evaluate ONNX and OpenVINO models
+
+```bash
+$ cd <YOLOv5_INSTALL_DIR>
+$ source ~/intel/openvino/deployment_tools/model_optimizer/openvino/bin/activate
+$ source ~/intel/openvino/bin/setupvars.sh
+```
+
+Evaluate the `ONNX` model
+
+```
+$ python conversion/eval.py --onnx
+```
+
+Evaluate the `OpenVINO` model
+
+```
+$ python conversion/eval.py
+```
 
 
 
