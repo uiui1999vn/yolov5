@@ -1,6 +1,9 @@
 
+# export PYTHONPATH=$PYTHONPATH:$PWD
 export PYTHONPATH="$PWD"
-python models/export.py \
-       --weights weights/best.pt \
-       --img 320 \
-       --batch 1
+python conversion/export.py \
+       --weights weights/org/best_xs.pt \
+       --img-size 320 \
+       --batch-size 1 \
+       --out-dir weights/onnx
+

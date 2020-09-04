@@ -1,16 +1,15 @@
-: '
+:'
 batch_size = 1
 '
-
 # Remove cached labels
-rm ./datasets/CEOT_hand_yolo/labels/*.cache
+rm /Users/thanhnguyen/Documents/Datasets/COCO2017_Person/labels/*.cache
 
 python test.py \
-        --weights ./runs/exp2/weights/best.pt \
-        --data ./data/ceot_hand.yaml \
+        --weights weights/org/best_xs.pt \
+        --data ./data/sku110k.yaml \
         --batch 1 \
-        --img 640 \
+        --img 320 \
         --task 'test' \
         --single-cls \
-        --device 5 \
+        --device 'cpu' \
         --verbose
