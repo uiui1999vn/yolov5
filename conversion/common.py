@@ -117,7 +117,7 @@ def detect(outputs, anchors, input_size, num_classes, openvino=True):
     a = torch.tensor(anchors).float().view(3, -1, 2)
     anchor_grid = a.clone().view(3, 1, -1, 1, 1, 2)
 
-    if len(outputs) == 4:  # the Detect layer was converted successfully
+    if len(outputs) == 4:
         outputs = [outputs[1], outputs[2], outputs[3]]
 
     for index, out in enumerate(outputs):

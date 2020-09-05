@@ -55,10 +55,11 @@ def main(args):
         img_in = preprocess_pil_img(image_src, args.img_size)
 
     outputs = exec_net.infer(inputs={input_blob: img_in})
+    key = list(outputs.keys())[0]
+    output = outputs[key]
 
-    outputx = detect(outputs, anchors, args.img_size, num_classes, openvino=True)
     detections = non_max_suppression(
-        outputx, args.conf_thres, args.iou_thres, agnostic=False
+        output, conf_thres=args.conf_thres, iou_thres=args.iou_thres, agnostic=False
     )
 
     end = time.time()

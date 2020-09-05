@@ -45,9 +45,8 @@ def main(args):
     input_name = session.get_inputs()[0].name
     outputs = session.run(None, {input_name: img_in})
 
-    outputx = detect(outputs, anchors, args.img_size, num_classes, openvino=False)
     detections = non_max_suppression(
-        outputx, conf_thres=args.conf_thres, iou_thres=args.iou_thres, agnostic=False
+        outputs[0], conf_thres=args.conf_thres, iou_thres=args.iou_thres, agnostic=False
     )
 
     return detections

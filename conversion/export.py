@@ -17,7 +17,7 @@ if __name__ == "__main__":
         "--weights", type=str, default="weights/org/yolov5s.pt", help="weights path"
     )
     parser.add_argument(
-        "--img-size", nargs="+", type=int, default=[640, 640], help="image size"
+        "--img-size", nargs="+", type=int, default=[512, 512], help="image size"
     )
     parser.add_argument("--batch-size", type=int, default=1, help="batch size")
     parser.add_argument(
@@ -37,7 +37,7 @@ if __name__ == "__main__":
     attempt_download(opt.weights)
     model = torch.load(opt.weights, map_location=torch.device("cpu"))["model"].float()
     # prune(model, 0.2)
-    # model.eval()
+    model.eval()
     model.model[-1].export = True  # set Detect() layer export=True
     y = model(img)  # dry run
 

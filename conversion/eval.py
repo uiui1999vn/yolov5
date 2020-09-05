@@ -129,18 +129,19 @@ def test(
             # Run model
             t = time_synchronized()
             if onnx:
-                inf_out = session.run(None, {input_name: img.numpy()})
+                outputs = session.run(None, {input_name: img.numpy()})
+                inf_out = outputs[0]
             else:
-                inf_out = exec_net.infer(inputs={input_blob: img})
+                outputs = exec_net.infer(inputs={input_blob: img})
+                key = list(outputs.keys())[0]
+                inf_out = outputs[key]
             t0 += time_synchronized() - t
 
             # Run NMS
             t = time_synchronized()
 
-            outputx = detect(inf_out, anchors, imgsz, num_classes, openvino=not onnx)
-
             output = non_max_suppression(
-                outputx, conf_thres=conf_thres, iou_thres=iou_thres, merge=merge
+                inf_out, conf_thres=conf_thres, iou_thres=iou_thres, merge=merge
             )
 
             t1 += time_synchronized() - t
@@ -305,13 +306,13 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model-xml",
         type=str,
-        default="weights/openvino/best_xs.xml",
+        default="weights/openvino/best.xml",
         help="model.xml path",
     )
     parser.add_argument(
         "--model-path",
         type=str,
-        default="weights/onnx/best_xs.onnx",
+        default="weights/onnx/best.onnx",
         help="model.onnx path",
     )
     parser.add_argument(
@@ -321,7 +322,7 @@ if __name__ == "__main__":
         "--batch-size", type=int, default=1, help="size of each image batch"
     )
     parser.add_argument(
-        "--img-size", type=int, default=320, help="inference size (pixels)"
+        "--img-size", type=int, default=512, help="inference size (pixels)"
     )
     parser.add_argument(
         "--conf-thres", type=float, default=0.001, help="object confidence threshold"

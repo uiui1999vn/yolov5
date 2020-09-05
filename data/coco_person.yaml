@@ -1,7 +1,7 @@
 # train and val datasets (image directory or *.txt file with image paths)
-train: /Users/thanhnguyen/Documents/Datasets/COCO2017_Person/val2017.txt
-val: /Users/thanhnguyen/Documents/Datasets/COCO2017_Person/val2017.txt
-test: /Users/thanhnguyen/Documents/Datasets/COCO2017_Person/val2017.txt
+train: /home/thanh_nguyen/Datasets/COCO2017_Person/images/train2017/
+val: /home/thanh_nguyen/Datasets/COCO2017_Person/images/val2017/
+test: /home/thanh_nguyen/Datasets/COCO2017_Person/images/val2017/
 
 # number of classes
 nc: 1

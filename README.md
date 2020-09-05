@@ -4,9 +4,10 @@
 
 ### 1.1. Requirements
 
-Just use `yolov5 verson 2` requirements, and the following packages:
+Install following packages:
 
 ```bash
+$ pip install torch==1.5.1 torchvision==0.6.1
 $ pip install onnx==1.7.0
 $ pip install onnxruntime==1.4.0
 ```
